@@ -62,6 +62,20 @@ const App = () => {
       margin: 0 auto 4rem auto;
     }
     
+    main {
+      padding-bottom: 5rem;
+    }
+    #hero {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    #features {
+      padding: 5rem 0;
+    }
+    #virtual-office, #tools, #security, #cta {
+      padding-top: 6rem;
+    }
+    
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -88,6 +102,10 @@ const App = () => {
       gap: 3rem;
     }
     .hero-layout h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--text-primary);
       text-align: left;
       margin-bottom: 0;
     }
@@ -95,6 +113,8 @@ const App = () => {
       text-align: left;
     }
     .hero-layout .hero-content p {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
       margin: 0 0 1.5rem 0;
       max-width: none;
     }
@@ -114,6 +134,14 @@ const App = () => {
       text-align: left;
       margin-left: 0;
       margin-right: 0;
+    }
+    
+    .how-it-works-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      border-bottom: 1px solid #444;
     }
 
     @media (max-width: 992px) {
@@ -138,6 +166,66 @@ const App = () => {
         margin-left: auto;
         margin-right: auto;
       }
+      
+      #hero {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+      #features {
+        padding: 4rem 0;
+      }
+      #virtual-office, #tools, #security, #cta {
+        padding-top: 4rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 3rem;
+      }
+      .hero-layout h1 {
+        font-size: 2.5rem;
+      }
+      .hero-layout .hero-content p {
+        font-size: 1.125rem;
+      }
+      .how-it-works-tabs {
+        flex-wrap: wrap;
+      }
+      #cta .button-primary {
+        padding: 14px 28px;
+        font-size: 1rem;
+      }
+      main {
+        padding-bottom: 3rem;
+      }
+      #hero {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+      #features {
+        padding: 3rem 0;
+      }
+      #virtual-office, #tools, #security, #cta {
+        padding-top: 3rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-layout h1 {
+        font-size: 2.1rem;
+      }
+      .logo-text-container {
+        display: none;
+      }
     }
   `;
 
@@ -145,10 +233,10 @@ const App = () => {
     <>
       <style>{styles}</style>
       <Header />
-      <main style={{ padding: '0 0 5rem 0' }}>
+      <main>
         <HeroSection />
         
-        <section id="features" style={{ padding: '5rem 0', backgroundColor: '#333333' }}>
+        <section id="features" style={{ backgroundColor: '#333333' }}>
           <div className="container features-layout">
             <div className="features-content">
               <h2 className="section-title" style={{ color: '#FFFFFF' }}>A Lógica por Trás do Documento</h2>
@@ -160,7 +248,7 @@ const App = () => {
           </div>
         </section>
 
-        <section id="virtual-office" className="container" style={{ paddingTop: '6rem' }}>
+        <section id="virtual-office" className="container">
             <h2 className="section-title">Gerenciamento de Casos e Arquivos</h2>
             <p className="section-subtitle">Mantenha todos os seus casos, modelos e variáveis em um único lugar, com uma estrutura de arquivos familiar e eficiente.</p>
             <FileTreeVisual />
@@ -168,13 +256,13 @@ const App = () => {
 
         <IntegratedToolsSection />
         
-        <section id="security" className="container" style={{ paddingTop: '6rem' }}>
+        <section id="security" className="container">
             <h2 className="section-title">Seguro e Profissional</h2>
             <p className="section-subtitle">Ferramentas que garantem a integridade e a confidencialidade dos seus documentos mais importantes.</p>
             <SecurityVisual />
         </section>
 
-        <section id="cta" className="container" style={{ paddingTop: '6rem', textAlign: 'center' }}>
+        <section id="cta" className="container" style={{ textAlign: 'center' }}>
             <h2 className="section-title" style={{ fontSize: '2rem' }}>Disponível para sua Estação de Trabalho</h2>
             <p className="section-subtitle" style={{ marginBottom: '2.5rem' }}>Baixe o ConnectJus Docs e otimize seu fluxo de trabalho de documentação.</p>
             <a href="https://github.com/VictorHungria/ConnectJus/releases/download/v0.0.1-alpha/ConnectJusDocs-Setup-1.0.0.exe" className="button-primary" style={{ padding: '16px 32px', fontSize: '1.125rem' }}>
@@ -237,7 +325,7 @@ const Header = () => {
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <a href="#" style={{ display: 'flex', alignItems: 'center', fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--text-primary)', textDecoration: 'none' }}>
           <Logo />
-          <span style={{ marginLeft: '0.5rem' }}>
+          <span className="logo-text-container" style={{ marginLeft: '0.5rem' }}>
             ConnectJus <span style={{ color: 'var(--accent)' }}>Docs.</span>
           </span>
         </a>
@@ -249,23 +337,15 @@ const Header = () => {
 
 const HeroSection = () => {
   return (
-    <section style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
+    <section id="hero">
       <div className="container hero-layout">
         <div>
-          <h1 style={{
-            fontSize: '3.5rem',
-            fontWeight: 900,
-            lineHeight: 1.2,
-            color: 'var(--text-primary)'
-          }}>
+          <h1>
             O Editor Jurídico <span className="hero-accent">Avançado</span> para Profissionais do Direito
           </h1>
         </div>
         <div className="hero-content">
-          <p style={{
-            fontSize: '1.25rem',
-            color: 'var(--text-secondary)',
-          }}>
+          <p>
             Crie, gerencie e exporte documentos complexos com variáveis, cálculos automáticos e formatação profissional. Totalmente offline e seguro.
           </p>
           <a href="#features" className="button-primary">
@@ -351,20 +431,88 @@ const FileTreeVisual = () => {
 const HowItWorksVisual = () => {
     const [activeTab, setActiveTab] = useState(1);
 
-    const TabContent = ({ id, children }) => (
-        <div style={{
-            transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
-            opacity: activeTab === id ? 1 : 0,
-            transform: activeTab === id ? 'translateY(0)' : 'translateY(20px)',
-            position: activeTab === id ? 'relative' : 'absolute',
-            visibility: activeTab === id ? 'visible' : 'hidden',
-            width: 'calc(100% - 3rem)',
-            top: '1.5rem',
-            left: '1.5rem',
-        }}>
-            {children}
-        </div>
-    );
+    // FIX: Refactored to define tab content in an array and render directly
+    // to resolve component prop errors with the previous TabContent component.
+    const TABS = [
+        {
+            id: 0,
+            label: 'Defina suas Variáveis',
+            content: (
+                <div style={{ backgroundColor: '#333333', padding: '1.5rem', borderRadius: '8px', border: '1px solid #444', fontFamily: '"Roboto Mono", monospace', color: '#F8F8F2', fontSize: '0.85rem', lineHeight: '1.7' }}>
+                    <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
+                        <span style={{ color: '#F92672' }}>Autor:</span><br />
+                        {'  '}<span style={{ color: '#888' }}>Nome:</span> <span style={{ color: '#A6E22E' }}>"João da Silva"</span><br />
+                        {'  '}<span style={{ color: '#888' }}>CPF:</span> <span style={{ color: '#A6E22E' }}>"123.456.789-00"</span><br />
+                        {'  '}<span style={{ color: '#888' }}>Endereço:</span> <span style={{ color: '#A6E22E' }}>"Rua Fictícia, 123"</span><br />
+                        {'  '}<span style={{ color: '#888' }}>E-mail:</span> <span style={{ color: '#A6E22E' }}>"joao@email.com"</span><br />
+                        <br />
+                        <span style={{ color: '#F92672' }}>Réu:</span><br />
+                        {'  '}<span style={{ color: '#888' }}>Nome:</span> <span style={{ color: '#A6E22E' }}>"Empresa XYZ"</span><br />
+                        {'  '}<span style={{ color: '#888' }}>CNPJ:</span> <span style={{ color: '#A6E22E' }}>"11.222.333/0001-44"</span><br />
+                        {'  '}<span style={{ color: '#888' }}>Endereço:</span> <span style={{ color: '#A6E22E' }}>"Av. Principal, 456"</span><br />
+                        {'  '}<span style={{ color: '#888' }}>E-mail:</span> <span style={{ color: '#A6E22E' }}>"contato@empresa.xyz"</span><br />
+                        <br />
+                        <span style={{ color: '#F92672' }}>Causa:</span><br />
+                        {'  '}<span style={{ color: '#888' }}>Valor:</span> <span style={{ color: '#AE81FF' }}>15000</span><br />
+                        {'  '}<span style={{ color: '#888' }}>Juizado:</span> <span style={{ color: '#A6E22E' }}>"1ª Vara Cível"</span><br />
+                        {'  '}<span style={{ color: '#888' }}>Assunto:</span> <span style={{ color: '#A6E22E' }}>"Danos Morais"</span>
+                    </pre>
+                </div>
+            )
+        },
+        {
+            id: 1,
+            label: 'Escreva seu Modelo',
+            content: (
+                 <div style={{ backgroundColor: '#333333', padding: '1.5rem', borderRadius: '8px', border: '1px solid #444', fontFamily: '"Inter", sans-serif', color: '#F8F8F2', lineHeight: '1.6', fontSize: '0.9rem' }}>
+                   <p style={{ fontWeight: 'bold', color: 'white', textAlign: 'center' }}>
+                       EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ dados_processo.vara }}`}</strong> DA COMARCA DE <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ reu.cidade }}`}/{`{{ reu.estado }}`}</strong>
+                   </p>
+                   <br />
+                   <p><strong>Autos nº <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ dados_processo.numero_processo }}`}</strong></strong></p>
+                   <br />
+                   <p>
+                       <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ reu.nome }}`}</strong>, pessoa jurídica de direito privado, já qualificada nos autos da <strong>Ação de Indenização por Danos Morais e Materiais</strong><span style={{ whiteSpace: 'nowrap' }}> que lhe move <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ autor.nome }}`}</strong></span>, vem, respeitosamente, por seu advogado que esta subscreve, apresentar
+                   </p>
+                   <br/>
+                   <h2 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.1rem', margin: '0.5rem 0', color: '#fff' }}>CONTESTAÇÃO</h2>
+                   <br/>
+                   <p>pelas razões de fato e de direito a seguir aduzidas:</p>
+                </div>
+            )
+        },
+        {
+            id: 2,
+            label: 'Exporte com um Clique',
+            content: (
+                <div style={{
+                    backgroundColor: '#FAFAFA',
+                    color: 'var(--text-primary)',
+                    padding: '1.5rem',
+                    borderRadius: '8px',
+                    border: '1px solid #EAEAEA',
+                    fontFamily: '"Times New Roman", serif',
+                    fontSize: '1rem',
+                    lineHeight: '1.6',
+                    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
+                 }}>
+                    <p style={{ fontWeight: 'bold', textAlign: 'center' }}>
+                        EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>1ª Vara Cível</strong> DA COMARCA DE <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>São Paulo/SP</strong>
+                    </p>
+                    <br />
+                    <p><strong>Autos nº <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>0012345-67.2023.8.26.0001</strong></strong></p>
+                    <br />
+                    <p>
+                        <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>Empresa XYZ</strong>, pessoa jurídica de direito privado, já qualificada nos autos da <strong>Ação de Indenização por Danos Morais e Materiais</strong> que lhe move <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>João da Silva</strong>, vem, respeitosamente, por seu advogado que esta subscreve, apresentar
+                    </p>
+                    <br />
+                    <h2 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.2rem', margin: '0.5rem 0' }}>CONTESTAÇÃO</h2>
+                    <br />
+                    <p>pelas razões de fato e de direito a seguir aduzidas:</p>
+                </div>
+            )
+        }
+    ];
     
     return (
         <div style={{
@@ -376,18 +524,8 @@ const HowItWorksVisual = () => {
             border: '1px solid #444',
             overflow: 'hidden'
         }}>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                padding: '0.5rem',
-                borderBottom: '1px solid #444',
-            }}>
-                {[
-                    { id: 0, label: 'Defina suas Variáveis' },
-                    { id: 1, label: 'Escreva seu Modelo' },
-                    { id: 2, label: 'Exporte com um Clique' },
-                ].map(tab => (
+            <div className="how-it-works-tabs">
+                {TABS.map(tab => (
                     <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
@@ -409,72 +547,23 @@ const HowItWorksVisual = () => {
                 ))}
             </div>
             <div style={{ position: 'relative' }}>
-                 <TabContent id={0}>
-                    <div style={{ backgroundColor: '#333333', padding: '1.5rem', borderRadius: '8px', border: '1px solid #444', fontFamily: '"Roboto Mono", monospace', color: '#F8F8F2', fontSize: '0.85rem', lineHeight: '1.7' }}>
-                        <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
-                            <span style={{ color: '#F92672' }}>Autor:</span><br />
-                            {'  '}<span style={{ color: '#888' }}>Nome:</span> <span style={{ color: '#A6E22E' }}>"João da Silva"</span><br />
-                            {'  '}<span style={{ color: '#888' }}>CPF:</span> <span style={{ color: '#A6E22E' }}>"123.456.789-00"</span><br />
-                            {'  '}<span style={{ color: '#888' }}>Endereço:</span> <span style={{ color: '#A6E22E' }}>"Rua Fictícia, 123"</span><br />
-                            {'  '}<span style={{ color: '#888' }}>E-mail:</span> <span style={{ color: '#A6E22E' }}>"joao@email.com"</span><br />
-                            <br />
-                            <span style={{ color: '#F92672' }}>Réu:</span><br />
-                            {'  '}<span style={{ color: '#888' }}>Nome:</span> <span style={{ color: '#A6E22E' }}>"Empresa XYZ"</span><br />
-                            {'  '}<span style={{ color: '#888' }}>CNPJ:</span> <span style={{ color: '#A6E22E' }}>"11.222.333/0001-44"</span><br />
-                            {'  '}<span style={{ color: '#888' }}>Endereço:</span> <span style={{ color: '#A6E22E' }}>"Av. Principal, 456"</span><br />
-                            {'  '}<span style={{ color: '#888' }}>E-mail:</span> <span style={{ color: '#A6E22E' }}>"contato@empresa.xyz"</span><br />
-                            <br />
-                            <span style={{ color: '#F92672' }}>Causa:</span><br />
-                            {'  '}<span style={{ color: '#888' }}>Valor:</span> <span style={{ color: '#AE81FF' }}>15000</span><br />
-                            {'  '}<span style={{ color: '#888' }}>Juizado:</span> <span style={{ color: '#A6E22E' }}>"1ª Vara Cível"</span><br />
-                            {'  '}<span style={{ color: '#888' }}>Assunto:</span> <span style={{ color: '#A6E22E' }}>"Danos Morais"</span>
-                        </pre>
+                 {TABS.map(tab => (
+                    <div
+                        key={tab.id}
+                        style={{
+                            transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
+                            opacity: activeTab === tab.id ? 1 : 0,
+                            transform: activeTab === tab.id ? 'translateY(0)' : 'translateY(20px)',
+                            position: activeTab === tab.id ? 'relative' : 'absolute',
+                            visibility: activeTab === tab.id ? 'visible' : 'hidden',
+                            width: 'calc(100% - 3rem)',
+                            top: '1.5rem',
+                            left: '1.5rem',
+                        }}
+                    >
+                        {tab.content}
                     </div>
-                </TabContent>
-                <TabContent id={1}>
-                     <div style={{ backgroundColor: '#333333', padding: '1.5rem', borderRadius: '8px', border: '1px solid #444', fontFamily: '"Inter", sans-serif', color: '#F8F8F2', lineHeight: '1.6', fontSize: '0.9rem' }}>
-                       <p style={{ fontWeight: 'bold', color: 'white', textAlign: 'center' }}>
-                           EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ dados_processo.vara }}`}</strong> DA COMARCA DE <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ reu.cidade }}`}/{`{{ reu.estado }}`}</strong>
-                       </p>
-                       <br />
-                       <p><strong>Autos nº <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ dados_processo.numero_processo }}`}</strong></strong></p>
-                       <br />
-                       <p>
-                           <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ reu.nome }}`}</strong>, pessoa jurídica de direito privado, já qualificada nos autos da <strong>Ação de Indenização por Danos Morais e Materiais</strong><span style={{ whiteSpace: 'nowrap' }}> que lhe move <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ autor.nome }}`}</strong></span>, vem, respeitosamente, por seu advogado que esta subscreve, apresentar
-                       </p>
-                       <br/>
-                       <h2 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.1rem', margin: '0.5rem 0', color: '#fff' }}>CONTESTAÇÃO</h2>
-                       <br/>
-                       <p>pelas razões de fato e de direito a seguir aduzidas:</p>
-                    </div>
-                </TabContent>
-                <TabContent id={2}>
-                    <div style={{
-                        backgroundColor: '#FAFAFA',
-                        color: 'var(--text-primary)',
-                        padding: '1.5rem',
-                        borderRadius: '8px',
-                        border: '1px solid #EAEAEA',
-                        fontFamily: '"Times New Roman", serif',
-                        fontSize: '1rem',
-                        lineHeight: '1.6',
-                        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
-                     }}>
-                        <p style={{ fontWeight: 'bold', textAlign: 'center' }}>
-                            EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>1ª Vara Cível</strong> DA COMARCA DE <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>São Paulo/SP</strong>
-                        </p>
-                        <br />
-                        <p><strong>Autos nº <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>0012345-67.2023.8.26.0001</strong></strong></p>
-                        <br />
-                        <p>
-                            <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>Empresa XYZ</strong>, pessoa jurídica de direito privado, já qualificada nos autos da <strong>Ação de Indenização por Danos Morais e Materiais</strong> que lhe move <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>João da Silva</strong>, vem, respeitosamente, por seu advogado que esta subscreve, apresentar
-                        </p>
-                        <br />
-                        <h2 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.2rem', margin: '0.5rem 0' }}>CONTESTAÇÃO</h2>
-                        <br />
-                        <p>pelas razões de fato e de direito a seguir aduzidas:</p>
-                    </div>
-                </TabContent>
+                ))}
             </div>
         </div>
     );
@@ -615,7 +704,7 @@ VALOR TOTAL GERAL DEVIDO: R$ 22.087,21`}
 
 const IntegratedToolsSection = () => {
     return (
-        <section id="tools" style={{ paddingTop: '6rem' }}>
+        <section id="tools">
             <div className="container">
                 <h2 className="section-title">Ferramentas Integradas para Máxima Eficiência</h2>
                 <p className="section-subtitle">
