@@ -36,11 +36,7 @@ export default defineConfig(({ mode }) => ({
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@connectjus/docs-api': path.resolve(__dirname, './packages/docs-api/src'),
-      '@connectjus/ui-primitives': path.resolve(__dirname, './packages/ui-primitives/src'),
-      '@connectjus/docs-calculator-ui': path.resolve(__dirname, './packages/docs-calculator-ui/src'),
-      '@connectjus/docs-ui': path.resolve(__dirname, './packages/docs-ui/src'),
+
     }
   },
 
