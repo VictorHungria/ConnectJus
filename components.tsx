@@ -545,7 +545,8 @@ const VariablesEditorVisual = () => {
                     </div>
                     <div style={{ padding: '16px', paddingLeft: '24px' }}>
                         <div style={{ borderLeft: '2px solid var(--border)', paddingLeft: '16px' }}>
-                            {fields.map(field => <VariableField key={field.key} fieldKey={field.key} fieldValue={field.value} />)}
+                            {/* FIX: Use index for key to avoid typescript error with ambiguous 'key' prop */}
+                            {fields.map((field, index) => <VariableField key={index} fieldKey={field.key} fieldValue={field.value} />)}
                         </div>
                     </div>
                 </div>
