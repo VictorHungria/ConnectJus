@@ -70,7 +70,12 @@ const App = () => {
       padding-bottom: 6rem;
     }
     #features {
-      padding: 5rem 0;
+      padding: 5rem 24px;
+      background-color: #333333;
+    }
+    #features .container {
+      padding-left: 0;
+      padding-right: 0;
     }
     #virtual-office, #tools, #security, #cta {
       padding-top: 6rem;
@@ -172,7 +177,7 @@ const App = () => {
         padding-bottom: 4rem;
       }
       #features {
-        padding: 4rem 0;
+        padding: 4rem 24px;
       }
       #virtual-office, #tools, #security, #cta {
         padding-top: 4rem;
@@ -212,7 +217,7 @@ const App = () => {
         padding-bottom: 3rem;
       }
       #features {
-        padding: 3rem 0;
+        padding: 3rem 16px;
       }
       #virtual-office, #tools, #security, #cta {
         padding-top: 3rem;
@@ -236,7 +241,7 @@ const App = () => {
       <main>
         <HeroSection />
         
-        <section id="features" style={{ backgroundColor: '#333333' }}>
+        <section id="features">
           <div className="container features-layout">
             <div className="features-content">
               <h2 className="section-title" style={{ color: '#FFFFFF' }}>A Lógica por Trás do Documento</h2>
