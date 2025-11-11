@@ -16,9 +16,14 @@ const App = () => {
       --accent-background: rgba(220, 38, 38, 0.1);
     }
     html {
+      box-sizing: border-box;
       scroll-behavior: smooth;
     }
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
     body {
+      margin: 0;
       background-color: var(--background);
       overflow-x: hidden;
     }
@@ -70,12 +75,9 @@ const App = () => {
       padding-bottom: 6rem;
     }
     #features {
-      padding: 5rem 24px;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
       background-color: #333333;
-    }
-    #features .container {
-      padding-left: 0;
-      padding-right: 0;
     }
     #virtual-office, #tools, #security, #cta {
       padding-top: 6rem;
@@ -177,7 +179,8 @@ const App = () => {
         padding-bottom: 4rem;
       }
       #features {
-        padding: 4rem 24px;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
       }
       #virtual-office, #tools, #security, #cta {
         padding-top: 4rem;
@@ -217,7 +220,8 @@ const App = () => {
         padding-bottom: 3rem;
       }
       #features {
-        padding: 3rem 16px;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
       }
       #virtual-office, #tools, #security, #cta {
         padding-top: 3rem;
@@ -443,7 +447,7 @@ const HowItWorksVisual = () => {
             id: 0,
             label: 'Defina suas Variáveis',
             content: (
-                <div style={{ backgroundColor: '#333333', padding: '1.5rem', borderRadius: '8px', border: '1px solid #444', fontFamily: '"Roboto Mono", monospace', color: '#F8F8F2', fontSize: '0.85rem', lineHeight: '1.7' }}>
+                <div style={{ backgroundColor: '#333333', padding: '1.5rem', borderRadius: '8px', border: '1px solid #444', fontFamily: '"Roboto Mono", monospace', color: '#F8F8F2', fontSize: '0.85rem', lineHeight: '1.7', overflowWrap: 'break-word' }}>
                     <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
                         <span style={{ color: '#F92672' }}>Autor:</span><br />
                         {'  '}<span style={{ color: '#888' }}>Nome:</span> <span style={{ color: '#A6E22E' }}>"João da Silva"</span><br />
@@ -469,7 +473,7 @@ const HowItWorksVisual = () => {
             id: 1,
             label: 'Escreva seu Modelo',
             content: (
-                 <div style={{ backgroundColor: '#333333', padding: '1.5rem', borderRadius: '8px', border: '1px solid #444', fontFamily: '"Inter", sans-serif', color: '#F8F8F2', lineHeight: '1.6', fontSize: '0.9rem' }}>
+                 <div style={{ backgroundColor: '#333333', padding: '1.5rem', borderRadius: '8px', border: '1px solid #444', fontFamily: '"Inter", sans-serif', color: '#F8F8F2', lineHeight: '1.6', fontSize: '0.9rem', overflowWrap: 'break-word' }}>
                    <p style={{ fontWeight: 'bold', color: 'white', textAlign: 'center' }}>
                        EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ dados_processo.vara }}`}</strong> DA COMARCA DE <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ reu.cidade }}`}/{`{{ reu.estado }}`}</strong>
                    </p>
@@ -477,7 +481,7 @@ const HowItWorksVisual = () => {
                    <p><strong>Autos nº <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ dados_processo.numero_processo }}`}</strong></strong></p>
                    <br />
                    <p>
-                       <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ reu.nome }}`}</strong>, pessoa jurídica de direito privado, já qualificada nos autos da <strong>Ação de Indenização por Danos Morais e Materiais</strong><span style={{ whiteSpace: 'nowrap' }}> que lhe move <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ autor.nome }}`}</strong></span>, vem, respeitosamente, por seu advogado que esta subscreve, apresentar
+                       <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ reu.nome }}`}</strong>, pessoa jurídica de direito privado, já qualificada nos autos da <strong>Ação de Indenização por Danos Morais e Materiais</strong> que lhe move <strong style={{ color: '#FFD2A6', background: 'rgba(255, 210, 166, 0.2)', padding: '2px 6px', borderRadius: '4px', fontWeight: 500 }}>{`{{ autor.nome }}`}</strong>, vem, respeitosamente, por seu advogado que esta subscreve, apresentar
                    </p>
                    <br/>
                    <h2 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.1rem', margin: '0.5rem 0', color: '#fff' }}>CONTESTAÇÃO</h2>
@@ -500,6 +504,7 @@ const HowItWorksVisual = () => {
                     fontSize: '1rem',
                     lineHeight: '1.6',
                     boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
+                    overflowWrap: 'break-word',
                  }}>
                     <p style={{ fontWeight: 'bold', textAlign: 'center' }}>
                         EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>1ª Vara Cível</strong> DA COMARCA DE <strong style={{ color: 'var(--accent)', background: 'var(--accent-background)', padding: '2px 4px', borderRadius: '4px' }}>São Paulo/SP</strong>
