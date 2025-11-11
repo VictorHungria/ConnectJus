@@ -43,6 +43,10 @@ export default defineConfig(({ mode }) => ({
       '@connectjus/docs-ui': path.resolve(__dirname, './packages/docs-ui/src'),
     }
   },
+
+  // ESTA É A LINHA QUE VOCÊ PRECISA ADICIONAR:
+  base: './',
+
   build: {
     outDir: 'dist'
   },
