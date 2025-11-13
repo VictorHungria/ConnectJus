@@ -116,7 +116,7 @@ OAB/123.456/SP
                 {/* Preview View */}
                 <div style={{
                     backgroundColor: '#FDFBF7',
-                    backgroundImage: 'url(/assets/paper.png)',
+                    backgroundImage: 'url("https://raw.githubusercontent.com/VictorHungria/ConnectJus/main/assets/paper.png")',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     color: '#000000',
