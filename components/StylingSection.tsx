@@ -88,7 +88,7 @@ OAB/123.456/SP
         <section id="styling" className="container">
             <h2 className="section-title">Foco no Conteúdo, Não na Formatação</h2>
             <p className="section-subtitle">
-                Use tags semânticas como <StyleTag type="custom">{'<art>'}</StyleTag> para artigos, <StyleTag type="header">#</StyleTag> para títulos, e funções como <StyleTag type="partial">{`{{ tdate() }}`}</StyleTag> para inserir a data atual. O ConnectJus cuida da formatação.
+                Use tags semânticas como <code className="code-highlight">&lt;art&gt;</code> para artigos, <code className="code-highlight">#</code> para títulos e funções como <code className="code-highlight">{`{{ tdate() }}`}</code> para inserir a data atual. O ConnectJus cuida da formatação. Defina o estilo do seu escritório uma vez, e ele será aplicado em todos os documentos automaticamente.
             </p>
             <div style={{
                 display: 'grid',
