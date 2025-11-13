@@ -34,11 +34,11 @@ export const StylingSection = () => {
  
 # dos fatos
  
-O Autor foi vítima de grave falha na prestação de serviços por parte da Ré, que resultou em significativos prejuízos de ordem material e moral, conforme será detalhado adiante.
+O Autor foi vítima de grave falha...
  
 ## da responsabilidade civil
  
-A responsabilidade civil da Ré encontra-se fundamentada nos artigos 186 e 927 do Código Civil, que determinam a obrigação de reparar o dano causado por ato ilícito.
+A responsabilidade civil da Ré...
  
 <art>Art. 186. Aquele que, por ação ou omissão voluntária...</art>
  
@@ -115,10 +115,13 @@ OAB/123.456/SP
                 </div>
                 {/* Preview View */}
                 <div style={{
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: '#FDFBF7',
+                    backgroundImage: 'url(/assets/paper.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
                     color: '#000000',
                     borderRadius: '8px',
-                    padding: '2rem',
+                    padding: '1.55cm 2rem 2.5cm 2rem',
                     fontFamily: '"Times New Roman", Times, serif',
                     border: '1px solid var(--border)',
                     boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
@@ -129,7 +132,7 @@ OAB/123.456/SP
                     fontSize: '9px', /* Base font size for preview */
                 }}>
                     <div style={{ fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '2em', lineHeight: '1.5' }}>
-                        <p>EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA 1ª VARA CÍVEL DA COMARCA DE SÃO PAULO/SP</p>
+                        <p>EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO</p>
                     </div>
 
                     <div style={{ marginBottom: '2em', lineHeight: '1.5', textIndent: '5em' }}>
@@ -140,11 +143,11 @@ OAB/123.456/SP
 
                     <h1 style={{ fontSize: '1.2em', fontWeight: 'bold', textTransform: 'uppercase', margin: '2em 0 1.5em 0' }}>I - DOS FATOS</h1>
                     <p style={{ textAlign: 'justify', textIndent: '5em', lineHeight: '1.5', marginBottom: '1em' }}>
-                        O Autor foi vítima de grave falha na prestação de serviços por parte da Ré, que resultou em significativos prejuízos de ordem material e moral, conforme será detalhado adiante.
+                        O Autor foi vítima de grave falha...
                     </p>
                     <h2 style={{ fontSize: '1.1em', fontWeight: 'bold', margin: '1.5em 0' }}>2.1. Da Responsabilidade Civil</h2>
                     <p style={{ textAlign: 'justify', textIndent: '5em', lineHeight: '1.5', marginBottom: '1em' }}>
-                       A responsabilidade civil da Ré encontra-se fundamentada nos artigos 186 e 927 do Código Civil, que determinam a obrigação de reparar o dano causado por ato ilícito.
+                       A responsabilidade civil da Ré...
                     </p>
                     <div style={{
                         margin: '1em 0 1em 4cm',
@@ -165,7 +168,7 @@ OAB/123.456/SP
                         <p style= {{ lineHeight: '1' }}><b>Dr. Carlos Alberto Mendes</b></p>
                         <p style= {{ lineHeight: '0' }}>OAB/123.456/SP</p>
                     </div>
-                    <div style={{position: 'absolute', bottom: 0, left: 0, right: 0, height: '50px', background: 'linear-gradient(to top, white 20%, transparent)'}}></div>
+                    <div style={{position: 'absolute', bottom: 0, left: 0, right: 0, height: '50px', background: 'linear-gradient(to top, #FDFBF7 20%, transparent)'}}></div>
                 </div>
             </div>
         </section>
