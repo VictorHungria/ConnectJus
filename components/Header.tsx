@@ -19,7 +19,7 @@ export const Header = () => {
             ConnectJus <span style={{ color: 'var(--accent)' }}>Docs.</span>
           </span>
         </a>
-        <a href="https://github.com/VictorHungria/ConnectJus/releases/latest" target="_blank" rel="noopener noreferrer" className="button-primary" style={{ padding: '8px 16px' }}>Download Gratuito</a>
+        <a href="https://github.com/VictorHungria/ConnectJus/releases/download/v0.0.3-alpha/ConnectJusDocs-Setup-0.0.3-alpha.exe" target="_blank" rel="noopener noreferrer" className="button-primary" style={{ padding: '8px 16px' }}>Download Gratuito</a>
       </div>
     </header>
   );
