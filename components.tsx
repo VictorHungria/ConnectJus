@@ -3,6 +3,7 @@ export { HeroSection } from './components/HeroSection';
 export { FeaturesSection } from './components/FeaturesSection';
 export { WorkflowSection } from './components/WorkflowSection';
 export { IntegratedToolsSection } from './components/IntegratedToolsSection';
+export { StylingSection } from './components/StylingSection';
 export { SecuritySection } from './components/SecuritySection';
 export { CtaSection } from './components/CtaSection';
 export { Footer } from './components/Footer';

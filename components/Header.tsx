@@ -1,5 +1,7 @@
 import React from 'react';
 import { Logo } from '../icons';
+import { GITHUB_LATEST_RELEASE_URL } from '../config';
+import { trackDownloadClick } from '../analytics';
 
 export const Header = () => {
   return (
@@ -19,7 +21,13 @@ export const Header = () => {
             ConnectJus <span style={{ color: 'var(--accent)' }}>Docs.</span>
           </span>
         </a>
-        <a href="https://github.com/VictorHungria/ConnectJus/releases/download/v0.0.3-alpha/ConnectJusDocs-Setup-0.0.3-alpha.exe" target="_blank" rel="noopener noreferrer" className="button-primary" style={{ padding: '8px 16px' }}>Download Gratuito</a>
+        <a
+           href={GITHUB_LATEST_RELEASE_URL}
+           className="button-primary" 
+           style={{ padding: '8px 16px' }}
+           onClick={() => trackDownloadClick('header')}>
+          Download Gratuito
+        </a>
       </div>
     </header>
   );

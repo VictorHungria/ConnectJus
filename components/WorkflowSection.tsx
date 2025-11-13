@@ -289,7 +289,8 @@ const VariablesEditorVisual = () => {
         );
     };
 
-    const VariableGroup = ({ groupName, fields, fieldCount }: { groupName: string, fields: { key: string, value: string }[], fieldCount: number }) => {
+    // FIX: Renamed 'key' property to 'fieldKey' to avoid conflict with React's special 'key' prop.
+    const VariableGroup = ({ groupName, fields, fieldCount }: { groupName: string, fields: { fieldKey: string, value: string }[], fieldCount: number }) => {
         const [isRowHovered, setIsRowHovered] = useState(false);
         const [isIconHovered, setIsIconHovered] = useState(false);
         
@@ -326,7 +327,7 @@ const VariablesEditorVisual = () => {
                     </div>
                     <div style={{ padding: '16px', paddingLeft: '24px' }}>
                         <div style={{ borderLeft: '2px solid var(--border)', paddingLeft: '16px' }}>
-                            {fields.map((field, index) => <VariableField key={index} fieldKey={field.key} fieldValue={field.value} />)}
+                            {fields.map((field, index) => <VariableField key={index} fieldKey={field.fieldKey} fieldValue={field.value} />)}
                         </div>
                     </div>
                 </div>
@@ -354,16 +355,16 @@ const VariablesEditorVisual = () => {
                     groupName="autor" 
                     fieldCount={2}
                     fields={[
-                        { key: 'nome', value: 'João da Silva' },
-                        { key: 'cpf', value: '123.456.789-00' }
+                        { fieldKey: 'nome', value: 'João da Silva' },
+                        { fieldKey: 'cpf', value: '123.456.789-00' }
                     ]} 
                 />
                  <VariableGroup 
                     groupName="reu" 
                     fieldCount={2}
                     fields={[
-                        { key: 'nome', value: 'Empresa XYZ' },
-                        { key: 'cnpj', value: '11.222.333/0001-44' }
+                        { fieldKey: 'nome', value: 'Empresa XYZ' },
+                        { fieldKey: 'cnpj', value: '11.222.333/0001-44' }
                     ]} 
                 />
             </div>

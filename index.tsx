@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Header, HeroSection, FeaturesSection, WorkflowSection, IntegratedToolsSection, SecuritySection, CtaSection, Footer } from './components';
+import { Header, HeroSection, FeaturesSection, WorkflowSection, IntegratedToolsSection, StylingSection, SecuritySection, CtaSection, Footer } from './components';
 
 const App = () => {
   const styles = `
@@ -121,7 +121,7 @@ const App = () => {
         border-bottom: 1px solid #3f3f46;
     }
 
-    #workflow, #tools, #security, #cta {
+    #workflow, #tools, #security, #cta, #styling {
       padding-top: 6rem;
     }
 
@@ -270,7 +270,7 @@ const App = () => {
       #features {
         padding: 4rem 0;
       }
-      #workflow, #tools, #security, #cta {
+      #workflow, #tools, #security, #cta, #styling {
         padding-top: 4rem;
       }
       #tools {
@@ -314,7 +314,7 @@ const App = () => {
       #features {
         padding: 3rem 0;
       }
-      #workflow, #tools, #security, #cta {
+      #workflow, #tools, #security, #cta, #styling {
         padding-top: 3rem;
       }
       #tools {
@@ -341,6 +341,7 @@ const App = () => {
         <FeaturesSection />
         <WorkflowSection />
         <IntegratedToolsSection />
+        <StylingSection />
         <SecuritySection />
         <CtaSection />
       </main>
