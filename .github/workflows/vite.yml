@@ -1,4 +1,4 @@
-# Workflow simples para fazer deploy de conteúdo estático para o GitHub Pages
+# Publica o aviso de manutenção no GitHub Pages (o site novo fica no Firebase Hosting; o antigo, no ramo site-antigo)
 name: Deploy static content to Pages
 
 on:
@@ -30,21 +30,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20 # Usando Node 20
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Envia o diretório 'dist' (resultado do 'npm run build')
-          path: './dist'
+          # Em manutenção: publica só o aviso (o site antigo está no ramo site-antigo).
+          path: './manutencao'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
